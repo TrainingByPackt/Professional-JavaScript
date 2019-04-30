@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>My Awesome E-Store | Advanced JavaScript</title>
+	<meta charset="utf-8">
+	<!--[if lt IE 9]>
+    <script type="text/javascript" src="js/html5.js"></script>
+	<![endif]-->
+	<style>
+		/* main section */
+		#main {
+			background-color: #fff;
+			padding: 20px 0;
+		}
+
+		#content {
+			overflow: hidden;
+		}
+
+		#content #left,
+		#content #right {
+			border: 1px solid #E9E9E9;
+			float: left;
+			margin: 0 2%;
+			width: 63%;
+		}
+
+		#content #right {
+			margin-left: 0;
+			width: 30%;
+		}
+
+		#content h3 {
+			background: -moz-linear-gradient(#ffffff, #F6F6F6);
+			/* FF 3.6+ */
+			background: -ms-linear-gradient(#ffffff, #F6F6F6);
+			/* IE10 */
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #F6F6F6));
+			/* Safari 4+, Chrome 2+ */
+			background: -webkit-linear-gradient(#ffffff, #F6F6F6);
+			/* Safari 5.1+, Chrome 10+ */
+			background: -o-linear-gradient(#ffffff, #F6F6F6);
+			/* Opera 11.10 */
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#F6F6F6');
+			/* IE6 & IE7 */
+			-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#F6F6F6')";
+			/* IE8+ */
+			background: linear-gradient(#ffffff, #F6F6F6);
+			/* the standard */
+			border-bottom: 1px solid #E0E0E0;
+			color: #3C3C3C;
+			font-size: 12px;
+			font-weight: bold;
+			line-height: 15px;
+			padding: 11px 0 12px 20px;
+			text-transform: uppercase;
+		}
+
+		#content ul {
+			list-style: none outside none;
+			margin: 0;
+			padding: 0;
+		}
+
+		#content #left ul li {
+			float: left;
+			padding-bottom: 21px;
+			width: 33%;
+		}
+
+		#content #left ul li:hover {
+			background-color: #fbfbfb;
+		}
+
+		#content #right ul li {
+			border-top: 1px solid #E7E7E7;
+			overflow: hidden;
+		}
+
+		#content #right ul li:hover {
+			background-color: #fbfbfb;
+		}
+
+		#content #right ul li:first-child {
+			border-width: none;
+		}
+
+		#content #left ul li .img {
+			text-align: center;
+		}
+
+		#content #right ul li .img {
+			background-color: #FFFFFF;
+			float: left;
+			height: 94px;
+			text-align: center;
+			width: 113px;
+		}
+
+		#content #left ul li .img img {
+			height: 128px;
+			width: 128px;
+		}
+
+		#content #right ul li .img img {
+			height: 70px;
+			margin-top: 11px;
+			width: 70px;
+		}
+
+		#content #left ul li .info {
+			padding: 17px 20px 0 19px;
+		}
+
+		#content #right ul li .info {
+			float: left;
+			overflow: hidden;
+			padding: 17px 0 0 21px;
+			width: 164px;
+		}
+
+		#content ul li .info .title {
+			color: #4B4B4B;
+			display: inline-block;
+			font-size: 11px;
+			font-weight: bold;
+			line-height: 16px;
+			text-decoration: none;
+			text-transform: uppercase;
+			width: 150px;
+		}
+
+		#content ul li .info .title:hover {
+			color: #049733;
+		}
+
+		#content #left ul li .info p {
+			color: #7F7F7F;
+			font-size: 11px;
+			line-height: 16px;
+			padding-top: 3px;
+		}
+
+		#content #left ul li .info .price {
+			background: none repeat scroll 0 0 #F7F7F7;
+			color: #383838;
+			font-size: 12px;
+			font-weight: bold;
+			line-height: 16px;
+			margin: 17px 0 10px;
+			padding: 6px 0 6px 8px;
+		}
+
+		#content #right ul li .info .price {
+			color: #383838;
+			font-size: 12px;
+			font-weight: bold;
+			line-height: 16px;
+			padding-top: 25px;
+		}
+
+		#content #left ul li .info .price .st {
+			color: #7F7F7F;
+			font-size: 11px;
+			line-height: 16px;
+			margin-right: 3px;
+		}
+
+		#content #right ul li .info .price .usual,
+		#content #right ul li .info .price .special {
+			color: #7F7F7F;
+			font-size: 12px;
+			font-weight: normal;
+			line-height: 16px;
+			padding-right: 6px;
+			text-decoration: line-through;
+		}
+
+		#content #right ul li .info .price .special {
+			color: #FD7A01;
+			font-weight: bold;
+			text-decoration: none;
+		}
+
+		#content #left ul li .info .actions {
+			overflow: hidden;
+		}
+
+		#content #left ul li .info .actions a {
+			border: 1px solid #E0E0E0;
+			color: #fd7a01;
+			display: block;
+			float: right;
+			font-size: 11px;
+			font-weight: bold;
+			line-height: 16px;
+			padding: 5px;
+			text-decoration: none;
+		}
+
+		#content #left ul li .info .actions a:first-child {
+			color: #009832;
+			float: left;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div id="main">
+			<!-- Defining submain content section -->
+			<section id="content">
+				<!-- Defining the content section #2 -->
+				<div id="left">
+					<h3>Featured products</h3>
+					<ul id="featuredProductList">
+						<li>
+							<div class="img"><a href="#"><img alt="" src="https://i.imgur.com/f4WyuBy.jpg"></a></div>
+							<div class="info">
+								<a class="title" href="#">Product 1</a>
+								<p>long description here 1</p>
+								<div class="price">
+									<span class="st">Our price:</span><strong>$550.00</strong>
+								</div>
+								<div class="actions">
+									<a href="#">Details</a>
+									<a href="#">Add to cart</a>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="img"><a href="#"><img alt="" src="https://i.imgur.com/f4WyuBy.jpg"></a></div>
+							<div class="info">
+								<a class="title" href="#">Product 2</a>
+								<p>long description here 2</p>
+								<div class="price">
+									<span class="st">Our price:</span><strong>$250.00</strong>
+								</div>
+								<div class="actions">
+									<a href="#">Details</a>
+									<a href="#">Add to cart</a>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="img"><a href="#"><img alt="" src="https://i.imgur.com/f4WyuBy.jpg"></a></div>
+							<div class="info">
+								<a class="title" href="#">Product 3</a>
+								<p>long description here 3</p>
+								<div class="price">
+									<span class="st">Our price:</span><strong>$350.00</strong>
+								</div>
+								<div class="actions">
+									<a href="#">Details</a>
+									<a href="#">Add to cart</a>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="img"><a href="#"><img alt="" src="https://i.imgur.com/f4WyuBy.jpg"></a></div>
+							<div class="info">
+								<a class="title" href="#">Product 4</a>
+								<p>long description here 1</p>
+								<div class="price">
+									<span class="st">Our price:</span><strong>$550.00</strong>
+								</div>
+								<div class="actions">
+									<a href="#">Details</a>
+									<a href="#">Add to cart</a>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="img"><a href="#"><img alt="" src="https://i.imgur.com/f4WyuBy.jpg"></a></div>
+							<div class="info">
+								<a class="title" href="#">Product 5</a>
+								<p>long description here 2</p>
+								<div class="price">
+									<span class="st">Our price:</span><strong>$250.00</strong>
+								</div>
+								<div class="actions">
+									<a href="#">Details</a>
+									<a href="#">Add to cart</a>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="img"><a href="#"><img alt="" src="https://i.imgur.com/f4WyuBy.jpg"></a></div>
+							<div class="info">
+								<a class="title" href="#">Product 6</a>
+								<p>long description here 3</p>
+								<div class="price">
+									<span class="st">Our price:</span><strong>$350.00</strong>
+								</div>
+								<div class="actions">
+									<a href="#">Details</a>
+									<a href="#">Add to cart</a>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div id="right">
+					<h3>Top sales</h3>
+					<ul>
+						<li>
+							<div class="img"><a href="#"><img alt="" src="https://i.imgur.com/f4WyuBy.jpg"></a></div>
+							<div class="info">
+								<a class="title" href="#">Product 7</a>
+								<div class="price">
+									<span class="usual">$600.00 </span>&nbsp;
+									<span class="special">$500.00</span>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="img"><a href="#"><img alt="" src="https://i.imgur.com/f4WyuBy.jpg"></a></div>
+							<div class="info">
+								<a class="title" href="#">Product 8</a>
+								<div class="price">
+									<span class="usual">$500.00 </span>&nbsp;
+									<span class="special">$400.00</span>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="img"><a href="#"><img alt="" src="https://i.imgur.com/f4WyuBy.jpg"></a></div>
+							<div class="info">
+								<a class="title" href="#">Product 9</a>
+								<div class="price">
+									<span class="usual">$700.00 </span>&nbsp;
+									<span class="special">$600.25</span>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="img"><a href="#"><img alt="" src="https://i.imgur.com/f4WyuBy.jpg"></a></div>
+							<div class="info">
+								<a class="title" href="#">Product 10</a>
+								<div class="price">
+									<span class="usual">$805.00 </span>&nbsp;
+									<span class="special">$714.25</span>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="img"><a href="#"><img alt="" src="https://i.imgur.com/f4WyuBy.jpg"></a></div>
+							<div class="info">
+								<a class="title" href="#">Product 11</a>
+								<div class="price">
+									<span class="usual">$1205.00 </span>&nbsp;
+									<span class="special">$1000.25</span>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="img"><a href="#"><img alt="" src="https://i.imgur.com/f4WyuBy.jpg"></a></div>
+							<div class="info">
+								<a class="title" href="#">Product 12</a>
+								<div class="price">
+									<span class="usual">$200.00 </span>&nbsp;
+									<span class="special">$190.25</span>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</section>
+		</div>
+	</div>
+</body>
