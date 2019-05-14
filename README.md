@@ -1,4 +1,4 @@
-[![GitHub issues](https://img.shields.io/github/issues/TrainingByPackt/IProfessional-JavaScript.svg)](https://github.com/TrainingByPackt/Professional-JavaScript/issues)
+[![GitHub issues](https://img.shields.io/github/issues/TrainingByPackt/Professional-JavaScript.svg)](https://github.com/TrainingByPackt/Professional-JavaScript/issues)
 [![GitHub forks](https://img.shields.io/github/forks/TrainingByPackt/Professional-JavaScript.svg)](https://github.com/TrainingByPackt/Professional-JavaScript/network)
 [![GitHub stars](https://img.shields.io/github/stars/TrainingByPackt/Professional-JavaScript.svg)](https://github.com/TrainingByPackt/Professional-JavaScript/stargazers)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/TrainingByPackt/IProfessional-JavaScript/pulls)
