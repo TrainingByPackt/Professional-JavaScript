@@ -1,0 +1,24 @@
+{
+  "name": "projs-l5",
+  "version": "1.0.0",
+  "description": "Sample code for Lesson 05 in Professional JavaScript.",
+  "keywords": [
+    "Packt",
+    "JavaScript",
+    "modules"
+  ],
+  "homepage": "https://github.com/TrainingByPackt/Professional-JavaScript",
+  "bugs": {
+    "url": "https://github.com/TrainingByPackt/Professional-JavaScript/issues",
+    "email": "kirkins@gmail.com"
+  },
+  "license": "MIT",
+  "author": "Philip Kirkbride",
+  "repository": "https://github.com/TrainingByPackt/Professional-JavaScript",
+  "scripts": {
+    "start": "ws"
+  },
+  "devDependencies": {
+    "local-web-server": "^2.6.1"
+  }
+}
