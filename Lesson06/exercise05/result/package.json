@@ -1,0 +1,23 @@
+{
+  "name": "after",
+  "version": "1.0.0",
+  "description": "",
+  "main": "jest-puppeteer.config.js",
+  "dependencies": {
+    "http-server": "^0.11.1"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0",
+    "jest-puppeteer": "^4.2.0",
+    "puppeteer": "^1.17.0"
+  },
+  "scripts": {
+    "test": "jest",
+    "start": "http-server"
+  },
+  "jest": {
+    "preset": "jest-puppeteer"
+  },
+  "author": "Philip Kirkbride",
+  "license": "ISC"
+}

@@ -1,0 +1,15 @@
+{
+  "name": "before",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "http-server": "^0.11.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "http-server"
+  },
+  "author": "Philip Kirkbride",
+  "license": "ISC"
+}
