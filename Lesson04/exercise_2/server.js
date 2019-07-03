@@ -15,11 +15,9 @@ app.use(express.json());
 
 // Import our index route
 let index = require('./routes/index');
-let light = require('./routes/devices/light');
 
 // Tell Express to use our index module for root URL
 app.use('/', index);
-app.use('/devices/light', light);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

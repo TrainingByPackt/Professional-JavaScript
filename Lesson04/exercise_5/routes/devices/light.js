@@ -27,16 +27,26 @@ router.get('/actions', function(req, res, next) {
 });
 
 // Function to run if user sends a PUT request
-router.put('/actions/fade', [
+router.put(['/', '/actions/fade'], [
     check('level').isNumeric().isLength({ min: 0, max: 100 }),
-    check('duration').isNumeric().isLength({ min: 0 })
+    check('duration').isNumeric().optional().isLength({ min: 0 })
   ],
   (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(422).json({ errors: errors.array() });
     }
-    res.json({"message": "success"});
+    let level = req.body.level;
+    let duration;
+    
+    if(req.body.duration) {
+      duration = req.body.duration;
+    } else {
+      duration = 500;
+    }
+
+    let message = `success: level to ${level} over ${duration} milliseconds`;
+    res.json({"message": message});
 });
 
 // Export route so it is available to import
