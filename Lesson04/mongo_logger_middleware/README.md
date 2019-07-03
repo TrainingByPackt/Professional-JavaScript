@@ -1,4 +1,4 @@
-Adding an Event Middleware to Record Requests in a Database
+# Adding an Event Middleware to Record Requests in a Database
 
 In this exercise we’ll install a database and create a middleware function that saves each API request to a database as an event.
 
