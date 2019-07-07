@@ -21,8 +21,8 @@ const light = {
     },
    "actions": {
     "fade": {
-      "title": "Fade",
-      "description": "Fade the light to a given level",
+      "title": "Fade Light",
+      "description": "Dim light brightness to a specified level",
       "input": {
         "type": "object",
         "properties": {
