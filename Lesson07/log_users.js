@@ -9,8 +9,9 @@ function numUsers(userList) {
 }
 
 function userLeft(userList, user) {
-    if (userList.indexOf(user) >= 0) {
-        userList.splice(userList.indexOf(user), 1);
+    const userIndex = userList.indexOf(user);
+    if (userIndex >= 0) {
+        userList.splice(userIndex, 1);
     }
 }
 
