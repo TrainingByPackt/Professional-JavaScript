@@ -10,6 +10,7 @@ The end-point should be protected so be sure to require a JWT for use as was don
 
 1. Create a new route file at `routes/devices/heater.js	`, it should use express-validator to check that temperature and mode is numeric, it should also check that mode is minimum 0 and maximum 1. If error checking passes it should return a success message using the values provided:
 
+    ```
     const express = require('express');
     const { check, validationResult } = require('express-validator/check');
     const router = express.Router();
@@ -33,35 +34,43 @@ The end-point should be protected so be sure to require a JWT for use as was don
     
     // Export route so it is available to import
     module.exports = router;
-
+    ```
 
 2. Import `routes/devices/heater.js` in `server.js`:
 
+    ```
     let heater = require('./routes/devices/heater');
+    ```
 
 3. Associate `heater` with route `/devices/heater`, making sure to pass the `isCheckedIn` middleware:
 
+    ```
     app.use('/devices/heater', isCheckedIn, heater);
+    ```
 
 4. Start the project by running `npm start`.
 
 5. In another window first get a valid JWT with curl:
 
+    ```
     TOKEN=$(curl -sd "name=john" -X POST http://localhost:3000/check-in \
       | jq -r ".token")
-
+    ```
 
 6. Test the endpoint with correct values like so, it should return a success message:
 
+    ```
     curl -sd "mode=0&temperature=25" -X PUT \
       -H "Authorization: Bearer ${TOKEN}" \
       http://localhost:3000/devices/heater \
       | jq
+    ```
 
 7. Finally test with some false value like so:
 
 
+    ```
     curl -sd "mode=9&temperature=25" -X PUT \
       http://localhost:3000/devices/heater \
       | jq
-
+    ```
