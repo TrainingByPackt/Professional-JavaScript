@@ -3,29 +3,78 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+exports["default"] = void 0;
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var privateVars = new WeakMap();
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-var Light = function () {
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var privateVars = new WeakMap();
+var onImage = "images/bulb_on.png";
+var offImage = "images/bulb_off.png";
+
+var Light =
+/*#__PURE__*/
+function () {
   function Light(state, brightness) {
     _classCallCheck(this, Light);
 
-    // Check that inputs are the right types
-    brightness = this.checkBrightnessFormat(brightness);
+    // Parse values
     state = this.checkStateFormat(state);
+    brightness = this.checkBrightnessFormat(brightness); // Create info object
 
-    // Create info object
-    var info = { "state": state, "brightness": brightness, "createdAt": Date.now() };
+    var info = {
+      "state": state,
+      "brightness": brightness,
+      "createdAt": Date.now()
+    }; // Create html element
 
-    // Save info into privateVars
+    var div = document.createElement("div");
+    var img = document.createElement("img");
+    var slider = document.createElement("input"); // Save reference to element as private variable
+
+    info.div = div;
+    info.img = img;
+    info.slider = slider;
+    this.createDiv(div, img, slider, state, brightness); // Save info into privateVars
+
     privateVars.set(this, info);
   }
 
   _createClass(Light, [{
+    key: "createDiv",
+    value: function createDiv(div, img, slider, state, brightness) {
+      // make it so we can access this in lower scope
+      var that = this; // modify html
+
+      div.style.width = "200px";
+      div.style["float"] = "left";
+
+      img.onclick = function () {
+        that.toggle();
+      };
+
+      img.width = "200";
+      img.src = state ? onImage : offImage;
+      img.style.opacity = brightness;
+
+      slider.onchange = function () {
+        that.setBrightness(this.value);
+      };
+
+      slider.type = "range";
+      slider.min = 0.01;
+      slider.max = 1;
+      slider.step = 0.01;
+      slider.value = brightness;
+      div.appendChild(img);
+      div.appendChild(slider); // append to document
+
+      document.body.appendChild(div);
+    }
+  }, {
     key: "checkStateFormat",
     value: function checkStateFormat(state) {
       // state must be true or false
@@ -46,6 +95,7 @@ var Light = function () {
       } else if (brightness < 0.01) {
         brightness = 0.01;
       }
+
       return brightness;
     }
   }, {
@@ -54,6 +104,7 @@ var Light = function () {
       var info = privateVars.get(this);
       info.state = checkStateFormat(state);
       privateVars.set(this, info);
+      info.img.src = info.state ? onImage : offImage;
     }
   }, {
     key: "getState",
@@ -65,8 +116,9 @@ var Light = function () {
     key: "setBrightness",
     value: function setBrightness(brightness) {
       var info = privateVars.get(this);
-      info.brightness = checkBrightnessFormat(state);
+      info.brightness = this.checkBrightnessFormat(brightness);
       privateVars.set(this, info);
+      info.img.style.opacity = brightness;
     }
   }, {
     key: "getBrightness",
@@ -75,11 +127,18 @@ var Light = function () {
       return info.brightness;
     }
   }, {
-    key: "lightSwitch",
-    value: function lightSwitch() {
+    key: "getImg",
+    value: function getImg() {
+      var info = privateVars.get(this);
+      return info.img;
+    }
+  }, {
+    key: "toggle",
+    value: function toggle() {
       var info = privateVars.get(this);
       info.state = !info.state;
       privateVars.set(this, info);
+      info.img.src = info.state ? onImage : offImage;
     }
   }, {
     key: "test",
@@ -92,4 +151,5 @@ var Light = function () {
   return Light;
 }();
 
-exports.default = Light;
+var _default = Light;
+exports["default"] = _default;

@@ -17,14 +17,17 @@
   "repository": "https://github.com/TrainingByPackt/Professional-JavaScript",
   "main": "build/index.js",
   "scripts": {
-    "start": "ws --directory src",
-    "build": "babel src -d build"
+    "start": "ws --directory build",
+    "build": "babel src -d build && cp -r src/index.html src/images build && webpack --config webpack.config.js"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.5.2",
-    "babel": "^6.23.0",
+    "@babel/cli": "^7.5.0",
+    "@babel/core": "^7.5.4",
+    "@babel/preset-env": "^7.5.4",
     "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "local-web-server": "^2.6.1"
+    "babel-core": "^7.0.0-bridge.0",
+    "local-web-server": "^2.6.1",
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.6"
   }
 }

@@ -1,10 +1,22 @@
 import Light from './light.js';
+import changeLight from './__extra__/changeColor.js';
+
+let privateVars = new WeakMap();
 
 class ColorLight extends Light {
 
   constructor(state=false, brightness=100, color="ffffff") {
     super(state, brightness);
-    this.color = this.checkColorFormat(color);
+
+    // Create info object
+    let info = {"color": this.checkColorFormat(color)};
+
+    // Save info into privateVars
+    privateVars.set(this, info);
+
+    let img = this.getImg();
+    img.style.webkitFilter = changeLight(color);
+    
   }
 
   checkColorFormat(color) {
@@ -15,6 +27,17 @@ class ColorLight extends Light {
       color = "ffffff";
     }
     return color;
+  }
+
+  getColor() {
+    let info = privateVars.get(this);
+    return info.color;
+  }
+
+  setColor(color) {
+    let info = privateVars.get(this);
+    info.color = this.checkColorFormat(color);
+    privateVars.set(this, info);
   }
 
 }
