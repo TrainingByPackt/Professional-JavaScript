@@ -1,16 +1,9 @@
-let privateVars = new WeakMap();
-
 class Light {
   constructor(state, brightness) {
     // Check that inputs are the right types
-    brightness = this.checkBrightnessFormat(brightness);
-    state = this.checkStateFormat(state);
-
-    // Create info object
-    let info = {"state": state, "brightness": brightness, "createdAt": Date.now()};
-
-    // Save info into privateVars
-    privateVars.set(this, info);
+    this.state = this.checkStateFormat(state);
+    this.brightness = this.checkBrightnessFormat(brightness);
+    this.createdAt = Date.now();
   }
 
   checkStateFormat(state) {
@@ -34,37 +27,12 @@ class Light {
     return brightness;
   }
 
-  setState(state) {                                                                                                                                    
-    let info = privateVars.get(this);                                                                                                                  
-    info.state = checkStateFormat(state);
-    privateVars.set(this, info);                                                                                                                       
-  }
-
-  getState() {                                                                                                                                         
-    let info = privateVars.get(this);                                                                                                                  
-    return info.state;                                                                                                                                 
-  }
-
-  setBrightness(brightness) {
-    let info = privateVars.get(this);
-    info.brightness = checkBrightnessFormat(state);
-    privateVars.set(this, info);
-  }
-
-  getBrightness() {
-    let info = privateVars.get(this);
-    return info.brightness;
-  }
-
-  lightSwitch() {
-    let info = privateVars.get(this);
-    info.state = !info.state;
-    privateVars.set(this, info);
+  toggle() {
+    this.state = !this.state;
   }
 
   test() {
-    let info = privateVars.get(this);
-    alert("state is " + privateVars.get(this).state);
+    alert("state is " + this.state);
   }
 }
 

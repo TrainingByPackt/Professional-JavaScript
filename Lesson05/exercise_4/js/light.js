@@ -2,9 +2,9 @@ let privateVars = new WeakMap();
 
 class Light {
   constructor(state, brightness) {
-    // Check that inputs are the right types
-    brightness = this.checkBrightnessFormat(brightness);
+    // Parse values
     state = this.checkStateFormat(state);
+    brightness = this.checkBrightnessFormat(brightness);
 
     // Create info object
     let info = {"state": state, "brightness": brightness, "createdAt": Date.now()};
@@ -47,7 +47,7 @@ class Light {
 
   setBrightness(brightness) {
     let info = privateVars.get(this);
-    info.brightness = checkBrightnessFormat(state);
+    info.brightness = this.checkBrightnessFormat(brightness);
     privateVars.set(this, info);
   }
 
@@ -56,7 +56,7 @@ class Light {
     return info.brightness;
   }
 
-  lightSwitch() {
+  toggle() {
     let info = privateVars.get(this);
     info.state = !info.state;
     privateVars.set(this, info);
