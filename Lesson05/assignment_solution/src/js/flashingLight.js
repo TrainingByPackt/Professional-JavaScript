@@ -1,7 +1,5 @@
-let privateVars = new WeakMap();
-let flashing;
-
 import Light from './light.js';
+let privateVars = new WeakMap();
 
 class FlashingLight extends Light {
 
@@ -31,11 +29,13 @@ class FlashingLight extends Light {
   }
 
   startFlashing() {
-    flashing = setInterval(this.lightSwitch.bind(this),5000);
+    let info = privateVars.get(this);
+    info.flashing = setInterval(this.toggle.bind(this),5000);
   }
 
   stopFlashing() {
-    clearInterval(flashing);
+    let info = privateVars.get(this);
+    clearInterval(info.flashing);
   }
 
 }

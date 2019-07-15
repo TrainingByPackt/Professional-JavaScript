@@ -7,8 +7,6 @@ exports["default"] = void 0;
 
 var _light = _interopRequireDefault(require("./light.js"));
 
-var _changeColor = _interopRequireDefault(require("./__extra__/changeColor.js"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -31,64 +29,68 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 var privateVars = new WeakMap();
 
-var ColorLight =
+var FlashingLight =
 /*#__PURE__*/
 function (_Light) {
-  _inherits(ColorLight, _Light);
+  _inherits(FlashingLight, _Light);
 
-  function ColorLight() {
+  function FlashingLight() {
     var _this;
 
     var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
     var brightness = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100;
-    var color = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "ffffff";
+    var flashMode = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
-    _classCallCheck(this, ColorLight);
+    _classCallCheck(this, FlashingLight);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(ColorLight).call(this, state, brightness)); // Create info object
-
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(FlashingLight).call(this, state, brightness));
     var info = {
-      "color": _this.checkColorFormat(color)
-    }; // Save info into privateVars
-
+      "flashMode": flashMode
+    };
     privateVars.set(_assertThisInitialized(_this), info);
 
-    var img = _this.getImg();
+    if (flashMode === true) {
+      _this.startFlashing();
+    }
 
-    img.style.webkitFilter = (0, _changeColor["default"])(color);
     return _this;
   }
 
-  _createClass(ColorLight, [{
-    key: "checkColorFormat",
-    value: function checkColorFormat(color) {
-      // color must be a valid hex color
-      var isHexColor = /^#[0-9A-F]{6}$/i.test('#' + color);
-
-      if (!isHexColor) {
-        // if invalid make white
-        color = "ffffff";
-      }
-
-      return color;
-    }
-  }, {
-    key: "getColor",
-    value: function getColor() {
+  _createClass(FlashingLight, [{
+    key: "setFlashMode",
+    value: function setFlashMode(flashMode) {
       var info = privateVars.get(this);
-      return info.color;
-    }
-  }, {
-    key: "setColor",
-    value: function setColor(color) {
-      var info = privateVars.get(this);
-      info.color = this.checkColorFormat(color);
+      info.flashMode = checkStateFormat(flashMode);
       privateVars.set(this, info);
+
+      if (flashMode === true) {
+        this.startFlashing();
+      } else {
+        this.stopFlashing();
+      }
+    }
+  }, {
+    key: "getFlashMode",
+    value: function getFlashMode() {
+      var info = privateVars.get(this);
+      return info.flashMode;
+    }
+  }, {
+    key: "startFlashing",
+    value: function startFlashing() {
+      var info = privateVars.get(this);
+      info.flashing = setInterval(this.toggle.bind(this), 5000);
+    }
+  }, {
+    key: "stopFlashing",
+    value: function stopFlashing() {
+      var info = privateVars.get(this);
+      clearInterval(info.flashing);
     }
   }]);
 
-  return ColorLight;
+  return FlashingLight;
 }(_light["default"]);
 
-var _default = ColorLight;
+var _default = FlashingLight;
 exports["default"] = _default;

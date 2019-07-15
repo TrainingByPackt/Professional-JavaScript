@@ -1,7 +1,9 @@
 import FlashingLight from './flashingLight.js';
-import ColorLight from './colorLight.js';
 
-let light = new FlashingLight();
-let light2= new ColorLight();
-light.lightSwitch();
-console.log(light.getFlashMode());
+let slider = document.getElementById("brightnessSlider");
+let color = document.getElementById("color");
+let button = document.getElementById("build");
+
+button.onclick = function () {
+  new FlashingLight(true, slider.value, true);
+}
