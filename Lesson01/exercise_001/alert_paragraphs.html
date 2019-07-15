@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>Sample Page</title>
+  </head>
+  <body>
+    <p>This is a paragraph.</p>
+    <div>
+      <p>This is a paragraph inside a div.</p>
+    </div>
+    <button>Click me!</button>
+    <script>
+      document.getElementsByTagName('button')[0].addEventListener('click', () => {
+        const allParagraphs = document.getElementsByTagName('p');
+
+        let allContent = "";
+        let count = 0;
+        for (let i = 0; i < allParagraphs.length; i++) {
+          const node = allParagraphs[i];
+          count++;
+          allContent += `${count} - ${node.textContent}\n`;
+        }
+        alert(`Found ${count} paragraphs. Their content:\n${allContent}`);
+      });
+    </script>
+  </body>
+</html>
