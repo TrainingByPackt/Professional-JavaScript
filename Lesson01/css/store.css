@@ -1,0 +1,29 @@
+body {
+  background-attachment: fixed;
+  background-image: url('../images/brick-wall-1245825_1920.jpg');
+}
+
+body > section {
+  background: rgba(200, 200, 200, 0.4);
+  height: 100%;
+  margin: 0 auto;
+  overflow-y: scroll;
+  padding: 10px 20px;
+  width: 1024px;
+}
+
+h1.title {
+  color: #6b2a13;
+  font-size: 3em;
+}
+
+.ui.items .item {
+  background: rgba(250, 250, 250, 0.8);
+  border-radius: 5px;
+  box-shadow: #444 2px 2px 5px;
+  padding: 10px;
+}
+
+.ui.items .item img {
+  max-height: 150px;
+}
