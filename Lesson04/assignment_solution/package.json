@@ -1,16 +1,16 @@
 {
-  "name": "exercise_1",
+  "name": "assignment_solution",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Philip Kirkbride",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4",
-    "express-validator": "^5.3.1",
+    "express": "^4.17.1",
+    "express-validator": "^6.1.1",
     "jwt-simple": "^0.5.6"
   }
 }
