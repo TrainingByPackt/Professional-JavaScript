@@ -10,4 +10,4 @@ elements.forEach((el) => {
 
   csv += `${name},${price},${unit}\n`;
 });
-
+console.log(csv);
