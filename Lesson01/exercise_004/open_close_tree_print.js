@@ -1,5 +1,5 @@
 function printNodes(node, level) {
-  let message = `${"-".repeat(4 * level)}Node Type: ${node.nodeName}`;
+  let message = `${"-".repeat(4 * level)}Node: ${node.nodeName}`;
   if (node.nodeValue) {
     message += `, content: '${node.nodeValue.trim()}'`;
   }
@@ -10,7 +10,7 @@ function printNodes(node, level) {
     printNodes(children[i], level + 1);
   }
   if (children.length > 0) {
-    console.log(`${"-".repeat(2 * level)}End of: ${node.nodeName}`);
+    console.log(`${"-".repeat(4 * level)}End of: ${node.nodeName}`);
   }
 }
 printNodes(document, 0);
