@@ -43,7 +43,12 @@ function createTagElement(tag) {
   return tagEl;
 }
 
-const itemsEl = document.querySelector('.items');
-products.forEach((product) => {
-  itemsEl.appendChild(createProductItem(product));
-});
+function createListForProducts(products) {
+  const itemsEl = document.querySelector('.items');
+  itemsEl.innerHTML = '';
+  products.forEach((product) => {
+    itemsEl.appendChild(createProductItem(product));
+  });
+}
+
+createListForProducts(products);
