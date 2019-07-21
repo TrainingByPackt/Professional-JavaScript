@@ -1,18 +1,28 @@
 const tagsToFilterBy = [];
+let textToSearch = '';
 
 function addTagFilter() {
-  Array.from(document.querySelectorAll('.extra .label')).forEach(tagEl => {
+  Array.from(document.querySelectorAll('.extra .label'))
+  .forEach(tagEl => {
     tagEl.addEventListener('click', () => {
       if (!tagsToFilterBy.includes(tagEl.innerHTML)) {
         tagsToFilterBy.push(tagEl.innerHTML);
-        applyTagFilter();
+        applyFilters();
       }
     });
   });
 }
 
-function applyTagFilter() {
-  createListForProducts(filterByTags(products));
+function addTextSearchFilter() {
+  document.querySelector('.menu .right input')
+    .addEventListener('keyup', (e) => {
+      textToSearch = e.target.value;
+      applyFilters();
+    });
+}
+
+function applyFilters() {
+  createListForProducts(filterByText(filterByTags(products)));
   addTagFilter();
   updateTagFilterList();
 }
@@ -25,7 +35,7 @@ function createTagFilterLabel(tag) {
   el.addEventListener('click', () => {
     const index = tagsToFilterBy.indexOf(tag);
     tagsToFilterBy.splice(index, 1);
-    applyTagFilter();
+    applyFilters();
   });
   return el;
 }
@@ -34,6 +44,14 @@ function filterByTags(products) {
   let filtered = products;
   tagsToFilterBy.forEach((t) => filtered = filtered.filter(p => p.tags.includes(t)));
   return filtered;
+}
+
+function filterByText(products) {
+  const txt = (textToSearch || '').toLowerCase();
+  return products.filter((p) => {
+    return p.name.toLowerCase().includes(txt)
+      || p.description.toLowerCase().includes(txt);
+  });
 }
 
 function updateTagFilterList() {
@@ -49,4 +67,5 @@ function updateTagFilterList() {
   }
 }
 
-applyTagFilter();
+addTextSearchFilter();
+applyFilters();

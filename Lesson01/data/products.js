@@ -175,7 +175,7 @@ const products = [
     "price": 2.79,
     "unit": "lb",
     "name": "Smilling Cookies",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "description": "Delicious sandwich cookies with creamy chocolate filling that always smile back to you, even knowing that you will eat them.",
     "image": "../images/products/smiley_cookies.jpg",
     "tags": [
       "bakery",
