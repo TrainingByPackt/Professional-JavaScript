@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>Shadow DOM Sample Code</title>
+    <style>
+      p {
+        background: #ccc;
+        color: #003366;
+      }
+    </style>
+  </head>
+  <body>
+    <p>This is a normal paragraph.</p>
+
+    <div><p>I'm in a Shadow DOM tree.</p></div>
+
+    <script>
+      const shadowHost = document.querySelector('div');
+      const shadowRoot = shadowHost.attachShadow({ mode: 'open' });
+      shadowRoot.innerHTML = shadowHost.innerHTML;
+    </script>
+  </body>
+</html>
