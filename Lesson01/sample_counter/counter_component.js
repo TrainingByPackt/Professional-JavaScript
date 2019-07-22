@@ -59,12 +59,22 @@ class Counter extends HTMLElement {
 
   decrementValue() {
     this.value -= this.increment;
+    this.triggerValueChangedEvent();
     this.updateState();
   }
 
   incrementValue() {
     this.value += this.increment;
+    this.triggerValueChangedEvent();
     this.updateState();
+  }
+
+  triggerValueChangedEvent() {
+    const event = new CustomEvent('value-changed', {
+      bubbles: true,
+      detail: { value: this.value },
+    });
+    this.dispatchEvent(event);
   }
 
   updateState() {
