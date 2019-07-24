@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>Web Components Example</title>
+  </head>
+  <body>
+    <counter-component></counter-component>
+    <counter-component value="7" increment="3"></counter-component>
+    <div></div>
+    <div id="output"></div>
+    <script src="counter_component.js"></script>
+    <script>
+      const output = document.getElementById('output');
+      Array.from(document.querySelectorAll('counter-component'))
+        .forEach((el, index) => {
+          el.addEventListener('value-changed', (e) => {
+            output.innerHTML += `<p>Counter ${index} value is now ${e.detail.value}</p>`;
+          });
+        });
+    </script>
+  </body>
+</html>

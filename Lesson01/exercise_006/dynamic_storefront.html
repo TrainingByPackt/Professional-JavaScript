@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../css/semantic.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/store_with_header.css" />
+  </head>
+  <body>
+    <div id="content">
+      <section class="header">
+        <h1 class="title">Welcome to Fresh Products Store!</h1>
+  
+        <div class="ui menu">
+          <div class="item">
+            Filtered by tags: <span class="tags"></span>
+          </div>
+          <div class="right item">
+            <div class="ui icon input">
+              <input type="text" placeholder="Search..." />
+              <i class="search icon"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="ui items"></div>
+    </div>
+
+    <script src="../data/products.js"></script>
+    <script src="../sample_003/create_elements.js"></script>
+    <script src="filter_and_search.js"></script>
+  </body>
+</html>
