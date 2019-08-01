@@ -1,5 +1,5 @@
 {
-  "name": "sample_commander",
+  "name": "exercise_003",
   "version": "1.0.0",
   "description": "Sample project that uses commander for CLI arguments parsing.",
   "main": "index.js",
