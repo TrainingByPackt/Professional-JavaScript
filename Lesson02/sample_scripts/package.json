@@ -1,0 +1,26 @@
+{
+  "name": "sample_scripts",
+  "version": "1.0.0",
+  "description": "Sample code to demonstrate npm scripts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+
+    "myscript": "echo 'Hello World!'",
+
+    "preexec": "echo 'John Doe' > name.txt",
+    "exec": "node index.js",
+    "postexec": "rm -v name.txt",
+
+    "prestart": "echo 'John Doe' > name.txt",
+    "start": "node index.js",
+    "poststart": "rm -v name.txt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TrainingByPackt/Professional-JavaScript.git",
+    "directory": "Lesson02/sample_scripts"
+  },
+  "author": "",
+  "license": "MIT"
+}
