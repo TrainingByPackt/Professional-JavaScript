@@ -1,36 +1,84 @@
-const readlineSync = require('readline-sync');
-
 const timeUnits = ['Seconds', 'Minutes', 'Hours'];
-const multipliers = [1000, 60 * 1000, 3600 * 000];
+const multipliers = [1000, 60 * 1000, 3600 * 1000];
 
-function addTimer() {
-  const id = readlineSync.question('What do you want to be reminded of? ');
-  const timeUnit = readlineSync.keyInSelect(timeUnits, 'What unit? ', { cancel: false });
-  const userTime = readlineSync.question(
-    `In how many ${timeUnits[timeUnit]}? `,
-    { limit: /\d+/, limitMessage: 'Only numbers, please.' }
-  );
+const write = process.stdout.write.bind(process.stdout);
 
-  setTimeout(() => {
-    process.stderr.write('\x07');
-    console.log(`Time for: ${id}`);
-    whatNext();
-  }, userTime * multipliers[timeUnit])
-  
-  console.log(`Added '${id}' in ${userTime} ${timeUnits[timeUnit]}`);
-}
+let amount = null;
+let message = null;
+let timeUnit = null;
 
-function whatNext() {
-  const options = ['Add'];
-  const answer = readlineSync.keyInSelect(options, 'What do you want to do next?', { cancel: 'Exit' });
-  if (answer < 0) {
-    process.exit(0);
+function askForAmount(input) {
+  if (input == null) {
+    write(`In how many ${timeUnits[timeUnit]}? > `);
     return;
   }
 
-  addTimer();
+  const number = parseInt(input, 10);
+  if (isNaN(number)) {
+    write(`Sorry, '${input}' is not valid. Try again. > `);
+    return;
+  }
+
+  amount = number;
+  setTimerAndRestart();
 }
 
-console.log('');
-console.log('-- Welcome to Task Reminder! --');
-addTimer();
+function askForMessage(input) {
+  if (input == null) {
+    write('What do you want to be reminded of? > ');
+    return;
+  }
+
+  if (input.length == 0) {
+    write('Message can not be empty. Please try again. > ');
+    return;
+  }
+
+  message = input;
+}
+
+function askForTimeUnit(input) {
+  if (input == null) {
+    console.log('What unit?');
+    timeUnits.forEach((unit, index) => console.log(`${index + 1} - ${unit}`) );
+    write('> ');
+    return;
+  }
+
+  const index = parseInt(input, 10);
+  if (isNaN(index) || index <= 0 || index > timeUnits.length) {
+    write(`Sorry, '${input}' is not valid. Please try again. > `);
+    return;
+  }
+
+  timeUnit = index - 1;
+  console.log(`Picked: ${timeUnits[timeUnit]}`);
+}
+
+function setTimerAndRestart() {
+  const currentMessage = message;
+  console.log(`Setting a reminder for '${message}' in ${amount} ${timeUnits[timeUnit]} from now.`);
+  setTimeout(() => write(`\n\x07Time for '${currentMessage}'\n> `), amount * multipliers[timeUnit]);
+
+  amount = message = timeUnit = null;
+  askForMessage();
+}
+
+function processInput(input) {
+  if (message == null) {
+    askForMessage(input);
+    input = null;
+  }
+
+  if (message != null && timeUnit == null) {
+    askForTimeUnit(input);
+    input = null;
+  }
+
+  if (timeUnit != null && amount == null) {
+    askForAmount(input);
+  }
+}
+
+process.stdin.on('data', (data) => processInput(data.toString().trim()));
+processInput();

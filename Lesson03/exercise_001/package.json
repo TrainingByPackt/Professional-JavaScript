@@ -8,8 +8,5 @@
     "url": "git+https://github.com/TrainingByPackt/Professional-JavaScript.git",
     "directory": "Lesson03/exercise_001"
   },
-  "license": "MIT",
-  "dependencies": {
-    "readline-sync": "^1.4.10"
-  }
+  "license": "MIT"
 }
