@@ -1,0 +1,12 @@
+{
+  "name": "exercise_001",
+  "version": "1.0.0",
+  "description": "First exercise for lesson 3.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TrainingByPackt/Professional-JavaScript.git",
+    "directory": "Lesson03/exercise_001"
+  },
+  "license": "MIT"
+}
