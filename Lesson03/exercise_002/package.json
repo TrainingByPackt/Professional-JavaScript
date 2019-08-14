@@ -1,0 +1,19 @@
+{
+  "name": "exercise_002",
+  "version": "1.0.0",
+  "description": "Second exercise for lesson 3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TrainingByPackt/Professional-JavaScript.git",
+    "directory": "Lesson03/exercise_002"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^3.0.0",
+    "glob-to-regexp": "^0.4.1"
+  }
+}
