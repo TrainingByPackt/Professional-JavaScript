@@ -1,6 +1,6 @@
 describe('Calculator', () => {
   beforeAll(async () => {
-    await page.goto('http://localhost:8080')
+    await page.goto('http://localhost:8080/index.html')
   })
 
   it('Check that 5 times 5 is 25', async () => {
