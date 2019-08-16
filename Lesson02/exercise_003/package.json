@@ -1,0 +1,15 @@
+{
+  "name": "exercise_003",
+  "version": "1.0.0",
+  "description": "Sample project that uses commander for CLI arguments parsing.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TrainingByPackt/Professional-JavaScript.git",
+    "directory": "Lesson02/exercise_003"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.20.0"
+  }
+}
