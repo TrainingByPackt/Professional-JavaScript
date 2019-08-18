@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "prettier --write src/**/*.js && eslint src/*.js",
-    "prettier": "prettier --write src/**/*.js"
+    "lint": "prettier --write src/**/*.js && eslint src/*.js"
   },
   "keywords": [],
   "author": "",
