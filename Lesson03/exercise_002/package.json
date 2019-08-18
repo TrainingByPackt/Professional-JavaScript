@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Second exercise for lesson 3",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TrainingByPackt/Professional-JavaScript.git",
