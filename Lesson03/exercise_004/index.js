@@ -34,6 +34,7 @@ function handleStaticFile(pathname, response) {
     return handleNotFound(response);
   }
 
+  // Check if file exists and is readable
   fs.access(fullPath, fs.constants.R_OK, (error) => {
     if (error) {
       console.error(`File is not readable: ${fullPath}`, error);
