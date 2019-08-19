@@ -1,7 +1,7 @@
 {
   "name": "exercise_004",
   "version": "1.0.0",
-  "description": "",
+  "description": "Exercise that demonstrate how to create a dynamic web server",
   "main": "index.js",
   "repository": {
     "type": "git",

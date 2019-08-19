@@ -5,40 +5,35 @@ const mime = require('mime');
 const path = require('path');
 const url = require('url');
 
-const staticDir = path.resolve('./static');
+const staticDir = path.resolve(`${__dirname}/static`);
 console.log(`Static resources from ${staticDir}`);
 
 const data = fs.readFileSync('products.json');
 const products = JSON.parse(data.toString());
 console.log(`Loaded ${products.length} products...`);
 
-handlebars.registerHelper('currency', (number) => number.toFixed(2));
+handlebars.registerHelper('currency', (number) => `$${number.toFixed(2)}`);
 
-function handleNotFound(response) {
-  response.writeHead(404);
-  response.end();
-}
-
+const htmlTemplate = fs.readFileSync('html/index.html').toString();
 function handleProductsPage(requestUrl, response) {
-  const template = handlebars.compile(fs.readFileSync('html/index.html').toString());
+  const template = handlebars.compile(htmlTemplate);
 
   response.writeHead(200);
-  response.write(template({ products }));
+  response.write(template({ products: products }));
   response.end();
 }
 
 function handleStaticFile(pathname, response) {
   // For security reasons, only serve files from static directory
-  const fullPath = path.resolve(`static${pathname}`);
-  if (!fullPath.startsWith(staticDir)) {
-    return handleNotFound(response);
-  }
+  const fullPath = path.join(staticDir, pathname);
 
   // Check if file exists and is readable
   fs.access(fullPath, fs.constants.R_OK, (error) => {
     if (error) {
       console.error(`File is not readable: ${fullPath}`, error);
-      return handleNotFound(response);
+      response.writeHead(404);
+      response.end();
+      return;
     }
 
     const contentType = mime.getType(path.extname(fullPath));
