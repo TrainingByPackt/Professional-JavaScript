@@ -14,10 +14,9 @@ console.log(`Loaded ${products.length} products...`);
 
 handlebars.registerHelper('currency', (number) => `$${number.toFixed(2)}`);
 
-const htmlTemplate = fs.readFileSync('html/index.html').toString();
+const htmlString = fs.readFileSync('html/index.html').toString();
+const template = handlebars.compile(htmlString);
 function handleProductsPage(requestUrl, response) {
-  const template = handlebars.compile(htmlTemplate);
-
   response.writeHead(200);
   response.write(template({ products: products }));
   response.end();
