@@ -21,7 +21,7 @@ function handleNotFound(response) {
 
 function handleProductsPage(requestUrl, response) {
   const template = handlebars.compile(fs.readFileSync('html/index.html').toString());
-  
+
   response.writeHead(200);
   response.write(template({ products }));
   response.end();
