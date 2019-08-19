@@ -5,12 +5,14 @@ const mime = require('mime');
 const path = require('path');
 const url = require('url');
 
-const currentDir = path.resolve('./');
-console.log(`Running from ${currentDir}`);
+const staticDir = path.resolve('./static');
+console.log(`Static resources from ${staticDir}`);
 
 const data = fs.readFileSync('products.json');
 const products = JSON.parse(data.toString());
 console.log(`Loaded ${products.length} products...`);
+
+handlebars.registerHelper('currency', (number) => number.toFixed(2));
 
 function handleNotFound(response) {
   response.writeHead(404);
@@ -26,8 +28,9 @@ function handleProductsPage(requestUrl, response) {
 }
 
 function handleStaticFile(pathname, response) {
-  const fullPath = path.resolve(pathname.substr(1));
-  if (!fullPath.startsWith(currentDir)) {
+  // For security reasons, only serve files from static directory
+  const fullPath = path.resolve(`static${pathname}`);
+  if (!fullPath.startsWith(staticDir)) {
     return handleNotFound(response);
   }
 
