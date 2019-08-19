@@ -47,15 +47,12 @@ function handleRequest(request, response) {
   const requestUrl = url.parse(request.url);
   const pathname = requestUrl.pathname;
   
-  switch(pathname) {
-    case '/':
-    case '/index.html':
-      handleProductsPage(requestUrl, response);
-      return;
-    default:
-      handleStaticFile(pathname, response);
-      return;
+  if (pathname == '/' || pathname == '/index.html') {
+    handleProductsPage(requestUrl, response);
+    return;
   }
+
+  handleStaticFile(pathname, response);
 }
 
 function initializeServer() {
