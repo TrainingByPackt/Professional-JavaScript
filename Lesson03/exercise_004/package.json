@@ -1,0 +1,15 @@
+{
+  "name": "exercise_004",
+  "version": "1.0.0",
+  "description": "Exercise that demonstrate how to create a dynamic web server",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TrainingByPackt/Professional-JavaScript.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "handlebars": "^4.1.2",
+    "mime": "^2.4.4"
+  }
+}

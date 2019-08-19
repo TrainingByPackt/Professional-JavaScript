@@ -1,16 +1,16 @@
 {
-  "name": "exercise_002",
+  "name": "exercise_003",
   "version": "1.0.0",
-  "description": "Second exercise for lesson 3",
+  "description": "Static HTTP server.",
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TrainingByPackt/Professional-JavaScript.git",
-    "directory": "Lesson03/exercise_002"
+    "directory": "Lesson03/exercise_003"
   },
+  "author": "",
   "license": "MIT",
   "dependencies": {
-    "commander": "^3.0.0",
-    "glob-to-regexp": "^0.4.1"
+    "mime": "^2.4.4"
   }
 }
