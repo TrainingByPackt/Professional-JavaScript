@@ -1,0 +1,16 @@
+{
+  "name": "exercise_005",
+  "version": "1.0.0",
+  "description": "Application to fetch Medium topic pages and print article information to console.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TrainingByPackt/Professional-JavaScript.git",
+    "directory": "Lesson003/exercise_005"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "jsdom": "^15.1.1"
+  }
+}
