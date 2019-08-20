@@ -8,13 +8,13 @@ const url = require('url');
 const staticDir = path.resolve(`${__dirname}/static`);
 console.log(`Static resources from ${staticDir}`);
 
-const data = fs.readFileSync('products.json');
+const data = fs.readFileSync(`${__dirname}/products.json`);
 const products = JSON.parse(data.toString());
 console.log(`Loaded ${products.length} products...`);
 
 handlebars.registerHelper('currency', (number) => `$${number.toFixed(2)}`);
 
-const htmlString = fs.readFileSync('html/index.html').toString();
+const htmlString = fs.readFileSync(`${__dirname}/html/index.html`).toString();
 const template = handlebars.compile(htmlString);
 function handleProductsPage(requestUrl, response) {
   response.writeHead(200);
