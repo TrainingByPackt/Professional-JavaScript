@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/semantic.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/store.css" />
+  </head>
+  <body>
+    <section>
+      <h1 class="title">Welcome to Fresh Products Store!</h1>
+      <div class="ui items">
+        {{#products}}
+        <div class="item">
+          <div class="image"><img src="{{image}}" /></div>
+          <div class="content">
+            <a class="header">{{name}}</a>
+            <div class="meta">
+              <span>{{currency price}} / {{unit}}</span>
+            </div>
+            <div class="description">{{description}}</div>
+            <div class="extra">
+              {{#tags}}
+              <div class="ui label teal">{{this}}</div>
+              {{/tags}}
+            </div>
+          </div>
+        </div>
+        {{/products}}
+      </div>
+    </section>
+  </body>
+</html>
