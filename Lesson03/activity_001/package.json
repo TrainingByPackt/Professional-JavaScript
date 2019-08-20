@@ -1,0 +1,18 @@
+{
+  "name": "activity_001",
+  "version": "1.0.0",
+  "description": "Application that will scrape the storefront to fetch data and write to a CSV file.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TrainingByPackt/Professional-JavaScript.git",
+    "directory": "Lesson03/activity_001"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "jsdom": "^15.1.1"
+  }
+}
