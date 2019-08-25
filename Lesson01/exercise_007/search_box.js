@@ -2,10 +2,17 @@ class SearchBox extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
+    this._searchText = '';
+    
     this.render();
     this.shadowRoot.querySelector('input').addEventListener('keyup', (e) => {
-      this.triggerTextChanged(e.target.value);
+      this._searchText = e.target.value;
+      this.triggerTextChanged(this._searchText);
     });
+  }
+
+  get searchText() {
+    return this._searchText;
   }
 
   render() {

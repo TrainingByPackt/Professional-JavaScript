@@ -1,11 +1,7 @@
 const tagsToFilterBy = [];
-let textToSearch = '';
 
 const searchBoxElement = document.querySelector('search-box');
-searchBoxElement.addEventListener('changed', (e) => {
-  textToSearch = e.detail.text;
-  applyFilters();
-});
+searchBoxElement.addEventListener('changed', (e) => applyFilters());
 
 function addTagFilter() {
   Array.from(document.querySelectorAll('.extra .label'))
@@ -45,7 +41,7 @@ function filterByTags(products) {
 }
 
 function filterByText(products) {
-  const txt = (textToSearch || '').toLowerCase();
+  const txt = searchBoxElement.searchText.toLowerCase();
   return products.filter((p) => {
     return p.name.toLowerCase().includes(txt)
       || p.description.toLowerCase().includes(txt);
