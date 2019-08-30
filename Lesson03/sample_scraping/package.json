@@ -1,0 +1,16 @@
+{
+  "name": "sample_scraping",
+  "version": "1.0.0",
+  "description": "Web scraping application used as sample.",
+  "main": "print_all_texts.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TrainingByPackt/Professional-JavaScript.git",
+    "directory": "Lesson03/sample_scraping"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "jsdom": "^15.1.1"
+  }
+}
