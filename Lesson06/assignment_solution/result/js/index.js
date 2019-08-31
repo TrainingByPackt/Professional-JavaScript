@@ -13,7 +13,9 @@ function load() {
   for (let i = 0; i < btns.length; i++) {
     let decimalAdded = false; // Flag used to avoid two decimal
 
+    /* eslint-disable */
     btns[i].addEventListener("click", function() {
+      /* eslint-enable */
       btnValue = this.innerHTML;
       input = inputScreen.innerHTML;
 
@@ -38,7 +40,9 @@ function load() {
           if (input) {
             // If the argument is an expression, eval() evaluates the expression.
             // If the argument is one or more JavaScript statements, eval() executes the statements.
+            /* eslint-disable */
             inputScreen.innerHTML = eval(input);
+            /* eslint-enable */
           }
           decimalAdded = false;
           break;

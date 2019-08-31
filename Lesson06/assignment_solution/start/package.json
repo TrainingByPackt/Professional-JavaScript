@@ -6,10 +6,10 @@
   "dependencies": {
     "http-server": "^0.11.1"
   },
+  "devDependencies": {},
   "scripts": {
     "start": "http-server"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Philip Kirkbride",
   "license": "ISC"
 }
