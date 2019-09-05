@@ -1,0 +1,25 @@
+{
+  "name": "01-first-class",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js",
+    "serve": "parcel serve",
+    "dev": "parcel serve"
+  },
+  "keywords": [],
+  "author": "Hugo Di Francesco",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.6.0",
+    "parcel-bundler": "^1.12.3",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-plugin-transform-class-properties": "^6.24.1"
+  }
+}

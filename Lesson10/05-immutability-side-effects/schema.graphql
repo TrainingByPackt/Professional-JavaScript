@@ -1,0 +1,21 @@
+type basket {
+  items: [basketItem]
+}
+
+"""BasketItem"""
+type basketItem {
+  name: String
+  price: Int
+  quantity: Int
+  id: String
+}
+
+type Mutation {
+  LineItemCost(id: String): Int
+}
+
+"""Root query"""
+type Query {
+  basket: basket
+}
+

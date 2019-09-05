@@ -1,0 +1,19 @@
+{
+  "name": "02-pure",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node example-1-double-test.js && node exercise-2-reducer-test.js && node exercise-3-items-selector-test.js",
+    "serve": "parcel serve"
+  },
+  "author": "Hugo Di Francesco",
+  "license": "MIT",
+  "dependencies": {
+    "parcel-bundler": "^1.12.3",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-redux": "^7.1.1",
+    "redux": "^4.0.4"
+  }
+}

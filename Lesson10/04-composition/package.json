@@ -1,0 +1,10 @@
+{
+  "name": "04-composition",
+  "version": "1.0.0",
+  "author": "Hugo Di Francesco",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "micro": "^9.3.4"
+  }
+}

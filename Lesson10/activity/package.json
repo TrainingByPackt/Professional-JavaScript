@@ -1,0 +1,13 @@
+{
+  "name": "first-class-activity",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "parcel serve index.html"
+  },
+  "author": "Hugo Di Francesco",
+  "dependencies": {
+    "parcel-bundler": "^1.12.3",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  }
+}
