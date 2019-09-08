@@ -28,7 +28,7 @@ console.log(`Found ${files.size} in '${rootDirectory}'...`);
 const server = http.createServer();
 server.on('request', (request, response) => {
   const requestUrl = url.parse(request.url);
-  const requestedPath = requestUrl.pathname;
+  const requestedPath = path.join(requestUrl.pathname);
   
   if (!files.has(requestedPath)) {
     console.log('404 %s', requestUrl.href);
