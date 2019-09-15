@@ -30,11 +30,7 @@ const authenticate = fn => async (req, res) => {
     }
   }
 
-  return sendError(
-    req,
-    res,
-    createError(401, `Unauthorized: ${responseText}`)
-  );
+  return sendError(req, res, createError(401, `Unauthorized: ${responseText}`));
 };
 
 const timer = fn => async (req, res) => {
