@@ -4,13 +4,8 @@
   "description": "Lesson 10 Activities",
   "main": "index.js",
   "scripts": {
-    "serve": "parcel serve",
-    "activity1": "parcel serve activity-1-on-checkout-prop-start.html",
-    "activity1:solution": "parcel serve activity-1-on-checkout-prop.html",
-    "activity2": "node activity-2-items-selector-test-start.js",
-    "activity2:solution": "node activity-2-items-selector-test.js",
-    "activity3": "concurrently --names GraphQL,React \"node activity-3-bff.js\" \"parcel serve activity-3-app-start.html\"",
-    "activity3:solution": "concurrently --names GraphQL,React \"node activity-3-bff.js\" \"parcel serve activity-3-app.html\""
+    "Exercise76": "parcel serve exercise-items-selector-start.html",
+    "Exercise76:solution": "parcel serve exercise-items-selector.html"
   },
   "author": "Hugo Di Francesco",
   "license": "MIT",
