@@ -4,23 +4,10 @@
   "description": "Lesson 10 Activities",
   "main": "index.js",
   "scripts": {
-    "serve": "parcel serve",
-    "activity1": "parcel serve activity-1-on-checkout-prop-start.html",
-    "activity1:solution": "parcel serve activity-1-on-checkout-prop.html",
-    "activity2": "node activity-2-items-selector-test-start.js",
-    "activity2:solution": "node activity-2-items-selector-test.js",
-    "activity3": "concurrently --names GraphQL,React \"node activity-3-bff.js\" \"parcel serve activity-3-app-start.html\"",
-    "activity3:solution": "concurrently --names GraphQL,React \"node activity-3-bff.js\" \"parcel serve activity-3-app.html\""
+    "Activity16": "node activity-items-selector-test-start.js",
+    "Activity16:solution": "node activity-items-selector-test.js"
   },
   "author": "Hugo Di Francesco",
   "license": "MIT",
-  "dependencies": {
-    "concurrently": "^4.1.2",
-    "parcel-bundler": "^1.12.3",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-redux": "^7.1.1",
-    "redux": "^4.0.4",
-    "redux-thunk": "^2.3.0"
-  }
+  "dependencies": {}
 }
