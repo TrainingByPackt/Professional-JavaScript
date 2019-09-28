@@ -1,12 +1,17 @@
-let singers = [];
-Array.isArray(singers);
+let exampleArray1 = [];
+Array.isArray(exampleArray1);
 
 // Or
-singers = new Array();
-typeof singers
+let exampleArray2 = new Array();
+Array.isArray(exampleArray2);
 
 // Or
-singers = new Array(6);
+let exampleArray3 = [];
+typeof exampleArray3
+
+// Or
+let exampleArray4 = new Array(6);
+console.log(exampleArray4);
 
 // Or
 let singers = new Array(6).fill('miku');
