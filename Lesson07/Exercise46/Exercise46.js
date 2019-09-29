@@ -15,6 +15,6 @@ class Food {
 // Food('burger', 1000, 9);
 // TypeError: Class constructor Food2 cannot be invoked without 'new'
 let friedChicken = new Food('fried chicken', 520, 5);
-console.log(burger.description());
+console.log(friedChicken.description());
 
 console.log(Food.getCalories(friedChicken)); /// 520
