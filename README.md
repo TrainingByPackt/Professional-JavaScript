@@ -24,4 +24,5 @@ By the end of this course, you'll have the skills you need to tackle any real-wo
 ### Software Requirement
 We also recommend that you have the following software installed in advance:
 * **OS**: Windows 7 SP1 64-bit, Windows 8.1 64-bit, Windows 10 64-bit, Linux (Ubuntu 16.04 or later, Debian, Red Hat, or Suse), or the latest version of macOS
+* **Browser**: Google Chrome/Mozilla Firefox Latest Version
 * **Node.js**: 10.16.3 LTS (https://nodejs.org/en/)
