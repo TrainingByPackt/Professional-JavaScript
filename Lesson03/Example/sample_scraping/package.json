@@ -6,7 +6,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TrainingByPackt/Professional-JavaScript.git",
-    "directory": "Lesson03/sample_scraping"
+    "directory": "Lesson03/Example/sample_scraping"
   },
   "author": "",
   "license": "MIT",

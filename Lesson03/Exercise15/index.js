@@ -33,7 +33,11 @@ function findArticles(document) {
       const split = parsedUrl.pathname.split('/').filter((s) => s.trim() != '');
       return split.length == 2;
     }).forEach(el => {
-      const description = el.parentNode.nextSibling.querySelector('p a').text;
+      let description = '[Description unnavailable]';
+      if (el.parentNode && el.parentNode.nextSibling && el.parentNode.nextSibling.querySelector('p a, h3 a')) {
+        description = el.parentNode.nextSibling.querySelector('p a, h3 a').text;
+      }
+
       articles[el.text] = {
         description: description,
         link: url.parse(el.href).pathname,

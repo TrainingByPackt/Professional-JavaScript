@@ -1,12 +1,12 @@
 {
   "name": "exercise_002",
   "version": "1.0.0",
-  "description": "Second exercise for lesson 3",
+  "description": "Application to search for files using globs",
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TrainingByPackt/Professional-JavaScript.git",
-    "directory": "Lesson03/exercise_002"
+    "directory": "Lesson03/Exercise12"
   },
   "license": "MIT",
   "dependencies": {
