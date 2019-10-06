@@ -31,7 +31,7 @@ class TagsHolder extends HTMLElement {
 
   render() {
     this.shadowRoot.innerHTML = `
-    <link rel="stylesheet" type="text/css" href="../css/semantic.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/semantic.min.css" />
     <div>
       Filtered by tags:
       <span class="tags"></span>

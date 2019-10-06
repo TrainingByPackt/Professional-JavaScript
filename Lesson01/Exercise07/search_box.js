@@ -17,7 +17,7 @@ class SearchBox extends HTMLElement {
 
   render() {
     this.shadowRoot.innerHTML = `
-      <link rel="stylesheet" type="text/css" href="../css/semantic.min.css" />
+      <link rel="stylesheet" type="text/css" href="css/semantic.min.css" />
       <div class="ui icon input">
         <input type="text" placeholder="Search..." />
         <i class="search icon"></i>
