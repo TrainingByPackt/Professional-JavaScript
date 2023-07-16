@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Page</title>
+</head>
+<body>
+    <p>This is a paragraph</p>
+    <div>
+        <p>This is a paragraph inside a div</p>
+    </div>
+    <button>Click me!</button>
+
+    <script>
+        document.getElementsByTagName("button")[0].addEventListener("click", function() {
+            const paragraphs = document.getElementsByTagName("p");
+
+            let content = "";
+            let count = 0;
+
+            for (const element of paragraphs) {
+                const node = element;
+                count++;
+                content += `${count} - ${node.textContent}\n`;
+            }
+
+            alert(`There are ${count} paragraphs in the page. Their content is:\n${content}`);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../../../../fullstackopen/part1/part1"
+		},
+		{
+			"name": "Professional-JavaScript",
+			"path": "../.."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Professional-JavaScript"
+	}
+}
