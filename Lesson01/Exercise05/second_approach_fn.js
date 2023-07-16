@@ -2,7 +2,7 @@
 function getAllSiblings(element) {
     const siblings = [];
 
-    /** Iterate over all previous siblings elements using a
+    /**Iterate over all previous siblings elements using a
      *  While loop and the previousElementSibling attribute and pushing them into the array*/
     let previous = element.previousElementSibling;
     while (previous) {
